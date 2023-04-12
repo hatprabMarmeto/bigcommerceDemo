@@ -1,0 +1,53 @@
+<section>
+  <h2 class="page-heading">{{lang 'categories.tabs_title' }}</h2>
+  <my-tabs data-token="{{ settings.storefront_api.token }}">
+    <div class="category-tabs" role="tablist" aria-label="Product Categories">
+      {{#each (limit categories theme_settings.homepage_category_tabs)}}
+      <button class="category-tab-title" role="tab" aria-selected="true" aria-controls="{{dashcase name}}" id="tab{{@index}}">{{name}}</button>
+      {{/each}}
+    </div>
+  
+    {{#each (limit categories theme_settings.homepage_category_tabs)}}
+      <div role="tabpanel" aria-labelledby="tab{{@index}}" id="{{dashcase name}}" data-collectionURL="{{url}}">
+        <div class="spinner-container">
+          <span class="spinner spinner--quarter"></span>
+        </div>
+      </div>
+    {{/each}}
+
+  <script type="text/template" id="product_template">
+    <li class="splide__slide">
+      <article class="card">
+        <figure class="card-figure">
+          <a href="{path}" class="card-figure__link" aria-label="{name}">
+              <div class="card-img-container">
+                  <img src="{defaultImage}" class="card-image" loading=lazy sizes="257px">
+              </div>
+          </a>
+  
+          <figcaption class="card-figcaption">
+              <div class="card-figcaption-body">
+                <button type="button" class="button button--small card-figcaption-button quickview" data-product-id="{entityId}">Quick view</button>
+                <a href="{addToCartUrl}" data-event-type="product-click" data-button-type="add-cart" class="button button--small card-figcaption-button">Add to Cart</a>
+                <span class="product-status-message aria-description--hidden">The item has been added</span>
+              </div>
+          </figcaption>
+        </figure>
+        <div class="card-body">
+          <h3 class="card-title">
+              <a aria-label="{name}" href="{path}">
+                  {name}
+              </a>
+          </h3>
+  
+          <div class="card-text" data-test-info-type="price">
+            <div class="price-section price-section--withTax rrp-price--withTax">
+              <span> {prices} </span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </li>
+  </script>
+  </my-tabs>
+</section>

@@ -12,6 +12,7 @@ import quickView from './global/quick-view';
 import cartPreview from './global/cart-preview';
 import privacyCookieNotification from './global/cookieNotification';
 import carousel from './common/carousel';
+import splideSlider from './tabCarousel';
 import svgInjector from './global/svg-injector';
 
 export default class Global extends PageManager {
@@ -23,6 +24,7 @@ export default class Global extends PageManager {
         foundation($(document));
         quickView(this.context);
         carousel(this.context);
+        splideSlider();
         menu();
         mobileMenuToggle();
         privacyCookieNotification();

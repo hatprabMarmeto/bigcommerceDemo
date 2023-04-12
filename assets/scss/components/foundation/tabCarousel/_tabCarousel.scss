@@ -1,0 +1,64 @@
+.category-tabs {
+  margin-bottom: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(33%, 1fr));
+  justify-content: center;
+  gap: 4px;
+
+  @include breakpoint("medium") {
+    display: flex;
+    justify-content: center;
+  }
+
+  .category-tab-title {
+    padding: remCalc(11px) remCalc(18px);
+    text-align: center;
+    text-decoration: $tab-title-text-decoration;
+    background-color: white;
+    color: black;
+    border: 1px solid gray;
+
+    &.tab-active {
+      background-color: gray;
+      color: white;
+      border: 1px solid black;
+    }
+  }
+}
+
+/* Keyframes Spin */
+@keyframes spinner {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Spinner */
+.spinner-container {
+  display: flex;
+	justify-content: space-around;
+	align-items: center;
+  height: 300px;
+}
+
+.spinner {
+	--spinner-color: black;
+
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+
+	animation-name: spinner;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+.spinner--quarter {
+	width: 48px;
+	border: 5px solid var(--spinner-color);
+	border-top-color: transparent;
+
+	animation-duration: 1s;
+}
