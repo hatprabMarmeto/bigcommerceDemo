@@ -1,6 +1,6 @@
-/* eslint-disable prefer-const */
 import Splide from '@splidejs/splide';
 
+// Implement Slider
 class SplideSlider extends HTMLElement {
     constructor() {
         super();
@@ -43,7 +43,8 @@ class SplideSlider extends HTMLElement {
     }
 }
 
-class MyTabs extends HTMLElement {
+// Implement Tabs
+class TabCarousel extends HTMLElement {
     constructor() {
         super();
 
@@ -51,6 +52,15 @@ class MyTabs extends HTMLElement {
         this.tabPanels = this.querySelectorAll('[role="tabpanel"]');
         this.productTemplate = this.querySelector('#product_template');
         this.token = this.dataset.token;
+
+        this.setActiveTab = this.dataset.setactivetab;
+        this.numberOftabs = this.dataset.numberoftabs;
+
+        // Handling that if the number of tabs are available for active tab if not then
+        // Show the initial tabs
+        if (this.numberOftabs < this.setActiveTab) {
+            this.setActiveTab = 0;
+        }
 
         this.init();
     }
@@ -77,7 +87,7 @@ class MyTabs extends HTMLElement {
             });
         });
 
-        this.activateTab(this.tabs[0]);
+        this.activateTab(this.tabs[parseInt(this.setActiveTab, 10)]);
     }
 
     appendProductItems(data, panel) {
@@ -117,6 +127,7 @@ class MyTabs extends HTMLElement {
             return;
         }
 
+        // Using Graphql to fetch the product dynamically
         fetch('/graphql', {
             method: 'POST',
             credentials: 'same-origin',
@@ -199,6 +210,7 @@ class MyTabs extends HTMLElement {
 
 
 export default function () {
+    // Register the custom components
     customElements.define('splide-slider', SplideSlider);
-    customElements.define('my-tabs', MyTabs);
+    customElements.define('tab-carousel', TabCarousel);
 }

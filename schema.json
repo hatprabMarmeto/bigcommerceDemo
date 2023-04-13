@@ -1185,6 +1185,79 @@
     ]
   },
   {
+    "name": "Tab Carousel",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Setting for the tab Carousel"
+      },
+      {
+        "type": "select",
+        "label": "Number of tabs",
+        "id": "homepage_category_tabs",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Which tab is active on page load",
+        "force_reload": true,
+        "id": "homepage_category_tabs_index",
+        "options": [
+          {
+            "value": 1,
+            "label": "0"
+          },
+          {
+            "value": 2,
+            "label": "1"
+          },
+          {
+            "value": 3,
+            "label": "2"
+          },
+          {
+            "value": 4,
+            "label": "3"
+          },
+          {
+            "value": 5,
+            "label": "4"
+          },
+          {
+            "value": 6,
+            "label": "5"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "name": "i18n.Products",
     "settings": [
       {
